@@ -28,7 +28,7 @@ Command and Control Server (C2)
 Author: Logan Goins 
 Contributors: 0D1NSS0N
 
-type \'help\' for available commands
+type \"help\" for available commands
 ''')
 
 while True:
@@ -45,7 +45,10 @@ while True:
 		cmd = command[0]
 		params = [cmd]	
 	if cmd == "listen":
-		server.listen(int(subcmd))
+		try:
+		    server.listen(int(subcmd))
+		except NameError:
+		    print("Error: please supply a port number for the server to listen on\n")
 	elif cmd == "generate":
 
         	# create the payload output folder if it does not exists

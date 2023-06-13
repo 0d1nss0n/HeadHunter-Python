@@ -5,7 +5,7 @@ import time
 import rsa
 from dataclasses import dataclass
 
-print("Generating encryption keys...")
+print("Generating RSA 2048 bit asymmetric encryption keys...")
 # Generate public and private RSA keys for the server
 public_key, private_key = rsa.newkeys(2048)
 public_partner = [None for i in range(100)]
