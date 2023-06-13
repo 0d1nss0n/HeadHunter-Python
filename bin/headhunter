@@ -1,2 +1,3 @@
+# HeadHunter psudo-binary to execute script
 #!/bin/bash
 python3 /usr/share/HeadHunter/headhunter.py
