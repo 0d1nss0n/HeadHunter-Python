@@ -16,6 +16,9 @@
   Author: Logan Goins
 
 ```
+# ATTENTION
+## Development on this project has moved to the far more stable C version. https://github.com/Lionskey/HeadHunter
+
 ## Showcase
 
 ![ezgif-2-764ac63be5](https://user-images.githubusercontent.com/55106700/230660106-0db0e26c-1fe1-4390-9fab-1cc12083beea.gif)
