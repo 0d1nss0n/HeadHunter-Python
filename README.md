@@ -71,7 +71,7 @@ sudo ./install.sh
 headhunter
 ```
 
-Alternatively you can just run the headhunter python file if you would like your file system unchanged or you are on Windows
+Alternatively you can just run the headhunter python file if you would like your file system unchanged.
 ```
 python3 headhunter.py
 ```
