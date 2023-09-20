@@ -1,6 +1,5 @@
 # HeadHunter (C2) server
 # Author: Logan Goins
-# Contributors: 0D1NSS0N
 # I am not liable for any misuse of this software.
 # This software is for educational purposes only
 
@@ -26,7 +25,6 @@ print(
 
 Command and Control Server (C2)
 Author: Logan Goins 
-Contributors: 0D1NSS0N
 
 type \"help\" for available commands
 ''')
