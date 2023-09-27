@@ -1,4 +1,4 @@
-# Note: This installer does not install dependencies. It only serves as an installer for HeadHunter on GNU/Linux.
+# Note: This installer only serves as an installer for HeadHunter on GNU/Linux.
 #!/bin/bash
 echo "Copying headhunter psudo binary"
 cp bin/headhunter /usr/bin
@@ -7,4 +7,5 @@ echo "Setting execute permissions"
 mkdir /usr/share/HeadHunter
 cp -r * /usr/share/HeadHunter
 echo "Moving headhunter source tree to /usr/share/HeadHunter"
-
+pip install -r requirements.txt
+echo "Installing required dependencies"
