@@ -2,7 +2,7 @@ import netifaces
 import os
 
 def generate():
-    def get_local_ip():   
+    def get_local_ip():
         interfaces = netifaces.interfaces()
         print('Available network interfaces:')
         options = []
@@ -10,37 +10,52 @@ def generate():
             addresses = netifaces.ifaddresses(interface)
             if netifaces.AF_INET in addresses:
                 ip_address = addresses[netifaces.AF_INET][0]['addr']
-                print(f'{i+1}: {interface} ({ip_address})')
-                options.append(ip_address)
-    
+                if ip_address != '127.0.0.1':
+                    options.append((i, interface, ip_address))
+
         if not options:
             print('No IP addresses found for available network interfaces.')
             return None
-        
+
         print('')
         print('---------------------------------------------------------------------------')
         print('')
-    
-        choice = input('Select an IP address (1-' + str(len(options)) + '): ')
+
+        print('Select an option:')
+        print('0: Manual IP entry')
+        for i, (_, interface, ip_address) in enumerate(options, start=1):
+            print(f'{i}: {interface} ({ip_address})')
+
         print('')
         print('---------------------------------------------------------------------------')
         print('')
-    
+
+        choice = input('Enter the number of the option or manually enter an IP address: ')
+        print('')
+        print('---------------------------------------------------------------------------')
+        print('')
+
         try:
             choice_num = int(choice)
-            if choice_num < 1 or choice_num > len(options):
+            if choice_num == 0:
+                ip_address = input('Enter the IP address manually: ')
+                print('')
+                print('---------------------------------------------------------------------------')
+                print('')
+            elif choice_num < 1 or choice_num > len(options):
                 raise ValueError
             else:
-                ip_address = options[choice_num-1]
-                print(f'Using IP address {ip_address} from {interfaces[choice_num-1]}')
+                _, _, ip_address = options[choice_num - 1]
+                print(f'Using IP address {ip_address}')
                 print('')
                 print('---------------------------------------------------------------------------')
                 print('')
         except ValueError:
             print('Invalid choice.')
             return None
-    
+
         return ip_address
+        
     lhost = get_local_ip()
     lport = int(input('Listener Port: '))
     print('')
